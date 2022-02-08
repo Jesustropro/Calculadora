@@ -1,0 +1,53 @@
+* {
+  font-family: "Fraunces", serif;
+  color: #fff;
+}
+
+body {
+  margin: 0;
+  background-color: slategrey;
+}
+.tituloNav {
+  color: white;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.diseño {
+  display: grid;
+  grid-template-columns: repeat(4, 3fr);
+  grid-template-rows: repeat(6, 3fr);
+  background-color: darkslategrey;
+  width: 60vh;
+  height: 70vh;
+  border-radius: 10%;
+  margin: 5%;
+  padding: 3%;
+}
+.pantalla {
+  grid-column: 1 / -1;
+  background-color: gray;
+  margin-bottom: 15%;
+  padding: 4%;
+  border-radius: 20%;
+  height: 80%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  height: 70%;
+  border-radius: 70%;
+  border-color: black;
+  background-color: aliceblue;
+}
+.c {
+  grid-column: 1 / -1;
+}
