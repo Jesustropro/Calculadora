@@ -44,9 +44,17 @@ body {
   justify-content: center;
   width: 70%;
   height: 70%;
-  border-radius: 70%;
-  border-color: black;
-  background-color: aliceblue;
+  border-radius: 20%;
+  border-color: seagreen;
+  background-color: gray;
+  color: #fff;
+  box-shadow: 3px 2px 2px black;
+}
+.btn:hover {
+  color: #fff;
+}
+.btn:active {
+  color: #fff;
 }
 .c {
   grid-column: 1 / -1;
