@@ -9,6 +9,12 @@ body {
   font-family: "Fraunces", serif;
   background-color: slategrey;
 }
+.bodySoft {
+  background-color: #ffc8e3;
+}
+.navbarSoft {
+  background-color: #ff91c4;
+}
 .tituloNav {
   color: white;
 }
@@ -68,7 +74,7 @@ body {
   align-items: flex-end;
   text-align: right;
   font-family: "calculator";
-  color: black !important;
+  color: #db3f88 !important;
   font-size: 28px;
 }
 .btnDark {
@@ -90,8 +96,8 @@ body {
   border-radius: 20%;
   border-color: #921f54;
   background-color: #fcc1de;
-  color: black;
-  box-shadow: 3px 2px 2px black;
+  color: #db3f88;
+  box-shadow: 3px 2px 2px #db3f88;
 }
 .btn:hover {
   color: #fff;

@@ -194,6 +194,14 @@ document.getElementById("soft").addEventListener("click", () => {
   pantalla.className = "pantallaSoft";
   let calculadora = document.getElementById("calculadora");
   calculadora.className = "diseñoSoft";
+  let btn = document.querySelectorAll(".btnDark");
+  btn.forEach((button) => {
+    button.className = "btnSoft";
+  });
+  let navbar = document.getElementById("navbar");
+  navbar.className = "navbar navbarSoft";
+  let body = document.getElementById("body");
+  body.className = "bodySoft";
 });
 //tema soft
 //tema dark
@@ -202,5 +210,13 @@ document.getElementById("dark").addEventListener("click", () => {
   pantalla.className = "pantallaDark";
   let calculadora = document.getElementById("calculadora");
   calculadora.className = "diseñoDark";
+  let btn = document.querySelectorAll(".btnSoft");
+  btn.forEach((button) => {
+    button.className = "btnDark";
+  });
+  let navbar = document.getElementById("navbar");
+  navbar.className = "navbar navbar-dark bg-dark";
+  let body = document.getElementById("body");
+  body.className = "";
 });
 //tema dark
