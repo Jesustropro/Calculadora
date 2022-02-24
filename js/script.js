@@ -51,7 +51,12 @@ const resultado = document.getElementById("resultado");
 let botones = document.querySelectorAll("button");
 botones.forEach((botonesCalculadora) => {
   botonesCalculadora.addEventListener("click", (evento) => {
-    if (document.getElementById("operacion").innerText == "0") {
+    //Temas
+    if (evento.target.innerText === "dark") {
+      operacion.innerHTML += "";
+    } else if (evento.target.innerText === "soft") {
+      operacion.innerHTML += "";
+    } else if (document.getElementById("operacion").innerText == "0") {
       operacion.innerHTML = "";
       operacion.innerHTML += evento.target.innerText;
       //sessionStorage.setItem("primerNumero", evento.target.innerText);
