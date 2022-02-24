@@ -1,0 +1,120 @@
+@font-face {
+  font-family: "calculator";
+  src: url("../fonts/Calculator.ttf") format("truetype");
+}
+
+body {
+  margin: 0;
+  color: #fff;
+  font-family: "Fraunces", serif;
+  background-color: slategrey;
+}
+.tituloNav {
+  color: white;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.diseñoDark {
+  display: grid;
+  grid-template-columns: repeat(4, 3fr);
+  grid-template-rows: repeat(6, 3fr);
+  background-color: #151716;
+  width: 60vh;
+  height: 70vh;
+  border-radius: 10%;
+  margin: 5%;
+  padding: 3%;
+}
+.diseñoSoft {
+  display: grid;
+  grid-template-columns: repeat(4, 3fr);
+  grid-template-rows: repeat(6, 3fr);
+  background-color: #f790b2;
+  width: 60vh;
+  height: 70vh;
+  border-radius: 10%;
+  margin: 5%;
+  padding: 3%;
+}
+.pantallaDark {
+  grid-column: 1 / -1;
+  background-color: black;
+  margin-bottom: 15%;
+  padding: 4%;
+  border-radius: 20%;
+  height: 80%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  font-family: "calculator";
+  color: green !important;
+  font-size: 28px;
+}
+.pantallaSoft {
+  grid-column: 1 / -1;
+  background-color: #fcc1de;
+  margin-bottom: 15%;
+  padding: 4%;
+  border-radius: 20%;
+  height: 80%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  font-family: "calculator";
+  color: black !important;
+  font-size: 28px;
+}
+.btnDark {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  height: 70%;
+  border-radius: 20%;
+  border-color: seagreen;
+  background-color: #292b29;
+  color: #fff;
+  box-shadow: 3px 2px 2px black;
+}
+.btnSoft {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  height: 70%;
+  border-radius: 20%;
+  border-color: #921f54;
+  background-color: #fcc1de;
+  color: black;
+  box-shadow: 3px 2px 2px black;
+}
+.btn:hover {
+  color: #fff;
+}
+.btn:active {
+  color: #fff;
+}
+.c {
+  grid-column: 1 / -1;
+}
+@media (max-width: 766px) {
+  .pantallaDark {
+    margin: 4%;
+  }
+  .pantallaSoft {
+    margin: 4%;
+  }
+  .diseñoDark {
+    align-items: center;
+    margin-right: initial;
+  }
+  .diseñoSoft {
+    align-items: center;
+    margin-right: initial;
+  }
+}

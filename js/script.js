@@ -87,11 +87,7 @@ x
   //Numeros
 
   if (evento.target.innerText == "0") {
-    if (localStorage.getItem("num1") === null) {
-      localStorage.setItem("num1", 0);
-    } else if (localStorage.getItem("num1") != null) {
-      localStorage.setItem("num2", 0);
-    }
+    casosNumeros(evento);
   }
   if (evento.target.innerText == "1") {
     casosNumeros(evento);
@@ -182,4 +178,29 @@ x
     localStorage.removeItem("num2");
   }
   //operaciones
+  document.addEventListener("keydown", (event) => {
+    const keyName = event.key;
+
+    if (event.key === "1") {
+      console.log(keyName);
+      operacion.innerText += keyName;
+      // casosNumeros(evento, event.key);
+    }
+  });
 });
+// tema soft
+document.getElementById("soft").addEventListener("click", () => {
+  let pantalla = document.getElementById("pantalla");
+  pantalla.className = "pantallaSoft";
+  let calculadora = document.getElementById("calculadora");
+  calculadora.className = "diseñoSoft";
+});
+//tema soft
+//tema dark
+document.getElementById("dark").addEventListener("click", () => {
+  let pantalla = document.getElementById("pantalla");
+  pantalla.className = "pantallaDark";
+  let calculadora = document.getElementById("calculadora");
+  calculadora.className = "diseñoDark";
+});
+//tema dark
