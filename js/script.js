@@ -102,12 +102,16 @@ botones.forEach((botonesCalculadora) => {
       }
       localStorage.setItem("operacion", "/");
     }
-    if (
-      localStorage.getItem("operacion") === "-" &&
-      localStorage.getItem("num1") == null
-    ) {
-      localStorage.setItem("num1", "-");
-      localStorage.removeItem("operacion");
+    if (evento.target.innerText === ".") {
+      if (localStorage.getItem("operacion") === null) {
+        n1 = localStorage.getItem("num1");
+        nw1 = n1 + evento.target.innerText;
+        localStorage.setItem("num1", nw1);
+      } else if (localStorage.getItem("operacion") !== null) {
+        n2 = localStorage.getItem("num2");
+        nw2 = n2 + evento.target.innerText;
+        localStorage.setItem("num2", nw2);
+      }
     }
     if (evento.target.innerText == "←") {
       let op = operacion.textContent;
@@ -128,6 +132,13 @@ botones.forEach((botonesCalculadora) => {
       if (operacion.textContent == "") {
         operacion.innerHTML = "0";
       }
+    }
+    if (
+      localStorage.getItem("operacion") === "-" &&
+      localStorage.getItem("num1") == null
+    ) {
+      localStorage.setItem("num1", "-");
+      localStorage.removeItem("operacion");
     }
     //Operadores
   });

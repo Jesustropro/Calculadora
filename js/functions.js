@@ -56,8 +56,8 @@ function casosNumeros(evento) {
 function casosIgual() {
   if (localStorage.getItem("operacion") == "+") {
     const suma = sumar(
-      parseInt(localStorage.getItem("num1")),
-      parseInt(localStorage.getItem("num2"))
+      parseFloat(localStorage.getItem("num1")),
+      parseFloat(localStorage.getItem("num2"))
     );
     resultado.innerHTML = suma;
     localStorage.removeItem("num1");
@@ -65,8 +65,8 @@ function casosIgual() {
     localStorage.removeItem("operacion");
   } else if (localStorage.getItem("operacion") == "-") {
     const resta = restar(
-      parseInt(localStorage.getItem("num1")),
-      parseInt(localStorage.getItem("num2"))
+      parseFloat(localStorage.getItem("num1")),
+      parseFloat(localStorage.getItem("num2"))
     );
     resultado.innerHTML = resta;
     localStorage.removeItem("num1");
@@ -74,8 +74,8 @@ function casosIgual() {
     localStorage.removeItem("operacion");
   } else if (localStorage.getItem("operacion") == "x") {
     const multiplica = multiplicar(
-      parseInt(localStorage.getItem("num1")),
-      parseInt(localStorage.getItem("num2"))
+      parseFloat(localStorage.getItem("num1")),
+      parseFloat(localStorage.getItem("num2"))
     );
     resultado.innerHTML = multiplica;
     localStorage.removeItem("num1");
@@ -83,8 +83,8 @@ function casosIgual() {
     localStorage.removeItem("operacion");
   } else if (localStorage.getItem("operacion") == "/") {
     const divide = dividir(
-      parseInt(localStorage.getItem("num1")),
-      parseInt(localStorage.getItem("num2"))
+      parseFloat(localStorage.getItem("num1")),
+      parseFloat(localStorage.getItem("num2"))
     );
     resultado.innerHTML = divide;
     localStorage.removeItem("num1");
