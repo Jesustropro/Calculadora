@@ -102,7 +102,7 @@ function temaDark() {
   calculadora.className = "diseñoDark";
   let btn = document.querySelectorAll(".btnSoft");
   btn.forEach((button) => {
-    button.className = "btnDark";
+    button.className = "btnDark punto";
   });
   let navbar = document.getElementById("navbar");
   navbar.className = "navbar navbar-dark bg-dark";

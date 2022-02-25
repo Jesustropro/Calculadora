@@ -118,6 +118,7 @@ body {
   background-color: #292b29;
   color: #fff;
   box-shadow: 3px 2px 2px black;
+  font-weight: bold;
 }
 .btnSoft {
   justify-self: center;
@@ -129,6 +130,7 @@ body {
   background-color: #fcc1de;
   color: #db3f88;
   box-shadow: 3px 2px 2px #db3f88;
+  font-weight: bold;
 }
 .btn:hover {
   color: #fff;
@@ -142,7 +144,14 @@ body {
 .quitar {
   display: none;
 }
-
+#operacion {
+  max-width: 100%;
+  overflow: hidden;
+}
+#resultado {
+  max-width: 100%;
+  overflow: hidden;
+}
 @media (max-width: 766px) {
   .pantallaDark {
     margin: 4%;
