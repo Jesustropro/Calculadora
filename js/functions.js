@@ -1,3 +1,14 @@
+function vaciar() {
+  document.getElementById("operacion").innerHTML = "0";
+  document.getElementById("resultado").innerHTML = "0";
+}
+
+function vaciarLocal() {
+  localStorage.removeItem("num1");
+  localStorage.removeItem("num2");
+  localStorage.removeItem("operacion");
+}
+
 function sumar(num1, num2) {
   return num1 + num2;
 }
@@ -9,16 +20,6 @@ function multiplicar(num1, num2) {
 }
 function dividir(num1, num2) {
   return num1 / num2;
-}
-function vaciar() {
-  document.getElementById("operacion").innerHTML = "0";
-  document.getElementById("resultado").innerHTML = "0";
-}
-vaciar();
-function vaciarLocal() {
-  localStorage.removeItem("num1");
-  localStorage.removeItem("num2");
-  localStorage.removeItem("operacion");
 }
 
 function casosNumeros(evento) {
@@ -88,6 +89,7 @@ function casosIgual() {
   }
   localStorage.removeItem("num2");
 }
+
 function temaDark() {
   localStorage.setItem("tema", "dark");
   let pantalla = document.getElementById("pantalla");
@@ -106,6 +108,15 @@ function temaDark() {
   ocultar.className = "temaSoft quitar";
   let mostrar = document.getElementById("soft");
   mostrar.className = "temaDark";
+  let logo = document.getElementById("temaLogo");
+  logo.innerHTML = `          <img
+            src="./images/logoDark.png"
+            alt=""
+            width="40"
+            height="50"
+            class="d-inline-block align-text-top"
+          />
+          <h1 class="tituloNav d-inline-block align-text-top">Calculadora</h1>`;
 }
 
 function temaSoft() {
@@ -126,4 +137,13 @@ function temaSoft() {
   ocultar.className = "temaDark quitar";
   let mostrar = document.getElementById("dark");
   mostrar.className = "temaSoft";
+  let logo = document.getElementById("temaLogo");
+  logo.innerHTML = `          <img
+            src="./images/logoSoft.png"
+            alt=""
+            width="40"
+            height="50"
+            class="d-inline-block align-text-top"
+          />
+          <h1 class="tituloNavSoft d-inline-block align-text-top">Calculadora</h1>`;
 }

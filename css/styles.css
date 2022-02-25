@@ -7,7 +7,7 @@ body {
   margin: 0;
   color: #fff;
   font-family: "Fraunces", serif;
-  background-color: slategrey;
+  background-color: #1f1f1f;
 }
 .bodySoft {
   background-color: #ffc8e3;
@@ -42,7 +42,12 @@ body {
   box-shadow: 3px 2px 2px #db3f88;
 }
 .tituloNav {
-  color: white;
+  color: darkgray;
+  font-weight: bold;
+}
+.tituloNavSoft {
+  color: lavenderblush;
+  font-weight: bold;
 }
 .container {
   display: flex;

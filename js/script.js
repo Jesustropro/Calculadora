@@ -1,8 +1,7 @@
+vaciar();
 vaciarLocal();
 const operacion = document.getElementById("operacion");
 const resultado = document.getElementById("resultado");
-//let numero1 = sessionStorage.getItem("primerNumero");
-//let numero2 = sessionStorage.getItem("segundoNumero");
 
 let botones = document.querySelectorAll("button");
 botones.forEach((botonesCalculadora) => {
@@ -22,9 +21,8 @@ botones.forEach((botonesCalculadora) => {
       operacion.innerHTML += evento.target.innerText;
     }
 
+    //Numeros
     if (evento.target.innerText == "0") {
-      //Numeros
-
       casosNumeros(evento);
     }
     if (evento.target.innerText == "1") {
@@ -54,9 +52,12 @@ botones.forEach((botonesCalculadora) => {
     if (evento.target.innerText == "9") {
       casosNumeros(evento);
     }
-
     //Numeros
+    //
     //Operadores
+    if (evento.target.innerText == "=") {
+      casosIgual();
+    }
     if (evento.target.innerText === "C") {
       vaciar();
       vaciarLocal();
@@ -122,10 +123,50 @@ botones.forEach((botonesCalculadora) => {
       }
     }
     //Operadores
-    //Operaciones
-    if (evento.target.innerText == "=") {
-      casosIgual();
-    }
-    //operaciones
   });
 });
+
+// string.slice(0, string.length - 1);
+
+/* let string = "jesus"
+undefined
+string.pop()
+VM15049:1 Uncaught TypeError: string.pop is not a function
+    at <anonymous>:1:8
+(anonymous) @ VM15049:1
+string.lenght - 1 
+NaN
+string.slice(0, str.length - 1);
+VM15134:1 Uncaught ReferenceError: str is not defined
+    at <anonymous>:1:17
+(anonymous) @ VM15134:1
+string.slice(0, string.length - 1);
+'jesu'
+let op = document.getElementById("operacion")
+undefined
+let opArray = op.split("")
+VM15620:1 Uncaught TypeError: op.split is not a function
+    at <anonymous>:1:18
+(anonymous) @ VM15620:1
+op = op.textContent
+'1+←'
+let opArray = op.split("")
+undefined
+opArray
+(3) ['1', '+', '←']0: "1"1: "+"2: "←"length: 3[[Prototype]]: Array(0)
+opArray[opArray.lenght - 1]
+undefined
+let last = opArray[opArray.lenght - 1]
+undefined
+last
+undefined
+let last = opArray[opArray.length - 1]
+undefined
+last.includes("+-/x←2")
+false
+localStorage.getItem("num1").find(last =>  last)
+VM16741:1 Uncaught TypeError: localStorage.getItem(...).find is not a function
+    at <anonymous>:1:30
+(anonymous) @ VM16741:1
+let uno = localStorage.getItem("num1")
+undefined*/
