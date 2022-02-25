@@ -104,7 +104,7 @@ body {
   font-size: 28px;
 }
 .btnDark {
-  display: flex;
+  justify-self: center;
   justify-content: center;
   width: 70%;
   height: 70%;
@@ -115,7 +115,7 @@ body {
   box-shadow: 3px 2px 2px black;
 }
 .btnSoft {
-  display: flex;
+  justify-self: center;
   justify-content: center;
   width: 70%;
   height: 70%;
