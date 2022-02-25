@@ -25,6 +25,10 @@ function dividir(num1, num2) {
 function casosNumeros(evento) {
   if (localStorage.getItem("num1") === null) {
     localStorage.setItem("num1", evento.target.innerText);
+  } else if (localStorage.getItem("num1") === "-") {
+    let negativo = localStorage.getItem("num1");
+    new1 = negativo + evento.target.innerText;
+    localStorage.setItem("num1", new1);
   } else if (
     localStorage.getItem("num1") !== null &&
     localStorage.getItem("operacion") !== null &&

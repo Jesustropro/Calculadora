@@ -102,6 +102,13 @@ botones.forEach((botonesCalculadora) => {
       }
       localStorage.setItem("operacion", "/");
     }
+    if (
+      localStorage.getItem("operacion") === "-" &&
+      localStorage.getItem("num1") == null
+    ) {
+      localStorage.setItem("num1", "-");
+      localStorage.removeItem("operacion");
+    }
     if (evento.target.innerText == "←") {
       let op = operacion.textContent;
 
