@@ -1,4 +1,4 @@
-localStorage.clear();
+vaciarLocal();
 const operacion = document.getElementById("operacion");
 const resultado = document.getElementById("resultado");
 //let numero1 = sessionStorage.getItem("primerNumero");
@@ -59,7 +59,7 @@ botones.forEach((botonesCalculadora) => {
     //Operadores
     if (evento.target.innerText === "C") {
       vaciar();
-      localStorage.clear();
+      vaciarLocal();
     }
     if (evento.target.innerText == "+") {
       if (

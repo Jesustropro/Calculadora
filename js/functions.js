@@ -15,6 +15,11 @@ function vaciar() {
   document.getElementById("resultado").innerHTML = "0";
 }
 vaciar();
+function vaciarLocal() {
+  localStorage.removeItem("num1");
+  localStorage.removeItem("num2");
+  localStorage.removeItem("operacion");
+}
 
 function casosNumeros(evento) {
   if (localStorage.getItem("num1") === null) {
@@ -82,4 +87,43 @@ function casosIgual() {
     localStorage.removeItem("operacion");
   }
   localStorage.removeItem("num2");
+}
+function temaDark() {
+  localStorage.setItem("tema", "dark");
+  let pantalla = document.getElementById("pantalla");
+  pantalla.className = "pantallaDark";
+  let calculadora = document.getElementById("calculadora");
+  calculadora.className = "diseñoDark";
+  let btn = document.querySelectorAll(".btnSoft");
+  btn.forEach((button) => {
+    button.className = "btnDark";
+  });
+  let navbar = document.getElementById("navbar");
+  navbar.className = "navbar navbar-dark bg-dark";
+  let body = document.getElementById("body");
+  body.className = "";
+  let ocultar = document.getElementById("dark");
+  ocultar.className = "temaSoft quitar";
+  let mostrar = document.getElementById("soft");
+  mostrar.className = "temaDark";
+}
+
+function temaSoft() {
+  localStorage.setItem("tema", "soft");
+  let pantalla = document.getElementById("pantalla");
+  pantalla.className = "pantallaSoft";
+  let calculadora = document.getElementById("calculadora");
+  calculadora.className = "diseñoSoft";
+  let btn = document.querySelectorAll(".btnDark");
+  btn.forEach((button) => {
+    button.className = "btnSoft";
+  });
+  let navbar = document.getElementById("navbar");
+  navbar.className = "navbar navbarSoft";
+  let body = document.getElementById("body");
+  body.className = "bodySoft";
+  let ocultar = document.getElementById("soft");
+  ocultar.className = "temaDark quitar";
+  let mostrar = document.getElementById("dark");
+  mostrar.className = "temaSoft";
 }
