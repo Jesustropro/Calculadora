@@ -51,9 +51,9 @@ const resultado = document.getElementById("resultado");
 let botones = document.querySelectorAll("button");
 botones.forEach((botonesCalculadora) => {
   botonesCalculadora.addEventListener("click", (evento) => {
-    if (evento.target.innerText === "dark") {
+    if (evento.target.innerText === "Dark") {
       operacion.innerHTML += "";
-    } else if (evento.target.innerText === "soft") {
+    } else if (evento.target.innerText === "Soft") {
       operacion.innerHTML += "";
     } else if (document.getElementById("operacion").innerText == "0") {
       operacion.innerHTML = "";
@@ -205,9 +205,11 @@ document.getElementById("soft").addEventListener("click", () => {
   navbar.className = "navbar navbarSoft";
   let body = document.getElementById("body");
   body.className = "bodySoft";
+  let ocultar = document.getElementById("soft");
+  ocultar.className = "temaSoft quitar";
+  let mostrar = document.getElementById("dark");
+  mostrar.className = "temaDark";
 });
-//tema soft
-//tema dark
 document.getElementById("dark").addEventListener("click", () => {
   let pantalla = document.getElementById("pantalla");
   pantalla.className = "pantallaDark";
@@ -221,50 +223,12 @@ document.getElementById("dark").addEventListener("click", () => {
   navbar.className = "navbar navbar-dark bg-dark";
   let body = document.getElementById("body");
   body.className = "";
+  let ocultar = document.getElementById("dark");
+  ocultar.className = "temaDark quitar";
+  let mostrar = document.getElementById("soft");
+  mostrar.className = "temaSoft";
 });
+//tema soft
 //tema dark
 
-// string.slice(0, string.length - 1);
-
-/* let string = "jesus"
-undefined
-string.pop()
-VM15049:1 Uncaught TypeError: string.pop is not a function
-    at <anonymous>:1:8
-(anonymous) @ VM15049:1
-string.lenght - 1 
-NaN
-string.slice(0, str.length - 1);
-VM15134:1 Uncaught ReferenceError: str is not defined
-    at <anonymous>:1:17
-(anonymous) @ VM15134:1
-string.slice(0, string.length - 1);
-'jesu'
-let op = document.getElementById("operacion")
-undefined
-let opArray = op.split("")
-VM15620:1 Uncaught TypeError: op.split is not a function
-    at <anonymous>:1:18
-(anonymous) @ VM15620:1
-op = op.textContent
-'1+←'
-let opArray = op.split("")
-undefined
-opArray
-(3) ['1', '+', '←']0: "1"1: "+"2: "←"length: 3[[Prototype]]: Array(0)
-opArray[opArray.lenght - 1]
-undefined
-let last = opArray[opArray.lenght - 1]
-undefined
-last
-undefined
-let last = opArray[opArray.length - 1]
-undefined
-last.includes("+-/x←2")
-false
-localStorage.getItem("num1").find(last =>  last)
-VM16741:1 Uncaught TypeError: localStorage.getItem(...).find is not a function
-    at <anonymous>:1:30
-(anonymous) @ VM16741:1
-let uno = localStorage.getItem("num1")
-undefined*/
+//tema dark
