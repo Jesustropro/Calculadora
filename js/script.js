@@ -42,7 +42,7 @@ function casosNumeros(evento) {
     localStorage.setItem("num2", Tres);
   }
 }
-
+localStorage.clear();
 const operacion = document.getElementById("operacion");
 const resultado = document.getElementById("resultado");
 //let numero1 = sessionStorage.getItem("primerNumero");
@@ -51,7 +51,6 @@ const resultado = document.getElementById("resultado");
 let botones = document.querySelectorAll("button");
 botones.forEach((botonesCalculadora) => {
   botonesCalculadora.addEventListener("click", (evento) => {
-    //Temas
     if (evento.target.innerText === "dark") {
       operacion.innerHTML += "";
     } else if (evento.target.innerText === "soft") {
@@ -59,17 +58,17 @@ botones.forEach((botonesCalculadora) => {
     } else if (document.getElementById("operacion").innerText == "0") {
       operacion.innerHTML = "";
       operacion.innerHTML += evento.target.innerText;
-      //sessionStorage.setItem("primerNumero", evento.target.innerText);
-    } else if (evento.target.innerText == "=") {
+    } else if (evento.target.innerText === "=") {
+      operacion.innerHTML += "";
+    } else if (evento.target.innerText == "←") {
       operacion.innerHTML += "";
     } else {
       operacion.innerHTML += evento.target.innerText;
-      //sessionStorage.setItem("segundoNumero", evento.target.innerText);
     }
 
-    //Numeros
-
     if (evento.target.innerText == "0") {
+      //Numeros
+
       casosNumeros(evento);
     }
     if (evento.target.innerText == "1") {
@@ -117,6 +116,26 @@ botones.forEach((botonesCalculadora) => {
     }
     if (evento.target.innerText == "/") {
       localStorage.setItem("operacion", "/");
+    }
+    if (evento.target.innerText == "←") {
+      let op = operacion.textContent;
+
+      //
+      //
+      //
+      //
+      //
+      //
+      //
+      //
+      //
+      //
+
+      let newOp = op.slice(0, op.length - 1);
+      operacion.innerHTML = newOp;
+      if (operacion.textContent == "") {
+        operacion.innerHTML = "0";
+      }
     }
     //Operadores
     //Operaciones
@@ -204,3 +223,48 @@ document.getElementById("dark").addEventListener("click", () => {
   body.className = "";
 });
 //tema dark
+
+// string.slice(0, string.length - 1);
+
+/* let string = "jesus"
+undefined
+string.pop()
+VM15049:1 Uncaught TypeError: string.pop is not a function
+    at <anonymous>:1:8
+(anonymous) @ VM15049:1
+string.lenght - 1 
+NaN
+string.slice(0, str.length - 1);
+VM15134:1 Uncaught ReferenceError: str is not defined
+    at <anonymous>:1:17
+(anonymous) @ VM15134:1
+string.slice(0, string.length - 1);
+'jesu'
+let op = document.getElementById("operacion")
+undefined
+let opArray = op.split("")
+VM15620:1 Uncaught TypeError: op.split is not a function
+    at <anonymous>:1:18
+(anonymous) @ VM15620:1
+op = op.textContent
+'1+←'
+let opArray = op.split("")
+undefined
+opArray
+(3) ['1', '+', '←']0: "1"1: "+"2: "←"length: 3[[Prototype]]: Array(0)
+opArray[opArray.lenght - 1]
+undefined
+let last = opArray[opArray.lenght - 1]
+undefined
+last
+undefined
+let last = opArray[opArray.length - 1]
+undefined
+last.includes("+-/x←2")
+false
+localStorage.getItem("num1").find(last =>  last)
+VM16741:1 Uncaught TypeError: localStorage.getItem(...).find is not a function
+    at <anonymous>:1:30
+(anonymous) @ VM16741:1
+let uno = localStorage.getItem("num1")
+undefined*/
