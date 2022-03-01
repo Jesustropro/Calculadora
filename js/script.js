@@ -194,50 +194,11 @@ botones.forEach((botonesCalculadora) => {
       localStorage.removeItem("operacion");
     }
     //Operadores
+    // Scroll
+    operacion.scrollTo({
+      top: 100,
+      left: 1000,
+    });
+    //Scroll
   });
 });
-
-// string.slice(0, string.length - 1);
-
-/* let string = "jesus"
-undefined
-string.pop()
-VM15049:1 Uncaught TypeError: string.pop is not a function
-    at <anonymous>:1:8
-(anonymous) @ VM15049:1
-string.lenght - 1 
-NaN
-string.slice(0, str.length - 1);
-VM15134:1 Uncaught ReferenceError: str is not defined
-    at <anonymous>:1:17
-(anonymous) @ VM15134:1
-string.slice(0, string.length - 1);
-'jesu'
-let op = document.getElementById("operacion")
-undefined
-let opArray = op.split("")
-VM15620:1 Uncaught TypeError: op.split is not a function
-    at <anonymous>:1:18
-(anonymous) @ VM15620:1
-op = op.textContent
-'1+←'
-let opArray = op.split("")
-undefined
-opArray
-(3) ['1', '+', '←']0: "1"1: "+"2: "←"length: 3[[Prototype]]: Array(0)
-opArray[opArray.lenght - 1]
-undefined
-let last = opArray[opArray.lenght - 1]
-undefined
-last
-undefined
-let last = opArray[opArray.length - 1]
-undefined
-last.includes("+-/x←2")
-false
-localStorage.getItem("num1").find(last =>  last)
-VM16741:1 Uncaught TypeError: localStorage.getItem(...).find is not a function
-    at <anonymous>:1:30
-(anonymous) @ VM16741:1
-let uno = localStorage.getItem("num1")
-undefined*/

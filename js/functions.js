@@ -121,6 +121,8 @@ function temaDark() {
             class="d-inline-block align-text-top"
           />
           <h1 class="tituloNav d-inline-block align-text-top">Calculadora</h1>`;
+  let scroll = document.getElementById("operacion");
+  scroll.className = "scrollDark";
 }
 
 function temaSoft() {
@@ -150,4 +152,6 @@ function temaSoft() {
             class="d-inline-block align-text-top"
           />
           <h1 class="tituloNavSoft d-inline-block align-text-top">Calculadora</h1>`;
+  let scroll = document.getElementById("operacion");
+  scroll.className = "scrollSoft";
 }

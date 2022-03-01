@@ -12,15 +12,24 @@ body {
 .bodySoft {
   background-color: #ffc8e3;
 }
+.scrollDark::-webkit-scrollbar {
+  height: 6px;
+}
+.scrollDark::-webkit-scrollbar-thumb {
+  background-color: green;
+  border-radius: 5px;
+}
+.scrollSoft::-webkit-scrollbar {
+  height: 6px;
+}
+.scrollSoft::-webkit-scrollbar-thumb {
+  background-color: #921f54;
+  border-radius: 5px;
+}
 .navbarSoft {
   background-color: #ff91c4;
 }
-.cirDark {
-  width: 20x;
-  height: 20px;
-  border-radius: 50%;
-  background-color: #151716;
-}
+
 .temaSoft {
   background-color: #151716;
   color: whitesmoke;
@@ -132,12 +141,6 @@ body {
   box-shadow: 3px 2px 2px #db3f88;
   font-weight: bold;
 }
-.btn:hover {
-  color: #fff;
-}
-.btn:active {
-  color: #fff;
-}
 .c {
   grid-column: 1 / -1;
 }
@@ -146,11 +149,13 @@ body {
 }
 #operacion {
   max-width: 100%;
-  overflow: hidden;
+  white-space: nowrap;
+  overflow: auto;
 }
 #resultado {
   max-width: 100%;
-  overflow: hidden;
+  white-space: nowrap;
+  overflow: auto;
 }
 @media (max-width: 766px) {
   .pantallaDark {
