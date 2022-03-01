@@ -174,4 +174,10 @@ body {
     align-items: center;
     margin-right: initial;
   }
+  .scrollDark::-webkit-scrollbar {
+    height: 2px;
+  }
+  .scrollSoft::-webkit-scrollbar {
+    height: 2px;
+  }
 }
