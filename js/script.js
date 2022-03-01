@@ -196,8 +196,10 @@ botones.forEach((botonesCalculadora) => {
     //Operadores
     // Scroll
     operacion.scrollTo({
-      top: 100,
-      left: 1000,
+      left: 10000,
+    });
+    resultado.scrollTo({
+      left: 10000,
     });
     //Scroll
   });

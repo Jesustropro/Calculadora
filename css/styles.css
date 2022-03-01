@@ -150,12 +150,14 @@ body {
 #operacion {
   max-width: 100%;
   white-space: nowrap;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 #resultado {
   max-width: 100%;
   white-space: nowrap;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 @media (max-width: 766px) {
   .pantallaDark {
