@@ -71,6 +71,9 @@ document.addEventListener("keydown", (evento) => {
           nw2 = n2 + evento.key;
           localStorage.setItem("num2", nw2);
         }
+      } else if (evento.key == "x" || evento.key == "*") {
+        casosIgual;
+        localStorage.setItem("operacion", "x");
       } else {
         if (operacionCompleta()) {
           casosIgual();
