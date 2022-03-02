@@ -48,6 +48,8 @@ document.addEventListener("keydown", (evento) => {
     "/",
     ".",
     "Backspace",
+    "x",
+    "Escape",
   ];
   if (teclasPermitidas.includes(evento.key)) {
     if (document.getElementById("operacion").innerText == "0") {
@@ -96,7 +98,7 @@ document.addEventListener("keydown", (evento) => {
     if (evento.key == "Enter") {
       casosIgual();
     }
-    if (evento.key === "C") {
+    if (evento.key === "Escape") {
       vaciar();
       vaciarLocal();
     }
@@ -120,7 +122,7 @@ document.addEventListener("keydown", (evento) => {
       }
       localStorage.setItem("operacion", "-");
     }
-    if (evento.key == "x") {
+    if (evento.key == "x" || evento.key == "*") {
       if (
         localStorage.getItem("operacion") != null &&
         localStorage.getItem("num1") != null &&
