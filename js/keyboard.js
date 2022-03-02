@@ -1,35 +1,8 @@
 //teclado pc
-function casosNumerosTeclado(evento) {
-  if (localStorage.getItem("num1") === null) {
-    localStorage.setItem("num1", evento.key);
-  } else if (localStorage.getItem("num1") === "-") {
-    let negativo = localStorage.getItem("num1");
-    new1 = negativo + evento.key;
-    localStorage.setItem("num1", new1);
-  } else if (
-    localStorage.getItem("num1") !== null &&
-    localStorage.getItem("operacion") !== null &&
-    localStorage.getItem("num2") === null
-  ) {
-    localStorage.setItem("num2", evento.key);
-  } else if (
-    localStorage.getItem("num1") != null &&
-    localStorage.getItem("operacion") === null
-  ) {
-    let uno = localStorage.getItem("num1");
-    let tres = uno + evento.key;
-    localStorage.setItem("num1", tres);
-  } else if (
-    localStorage.getItem("num1") != null &&
-    localStorage.getItem("operacion") != null &&
-    localStorage.getItem("num2") !== null
-  ) {
-    let Uno = localStorage.getItem("num2");
-    let Tres = Uno + evento.key;
-    localStorage.setItem("num2", Tres);
-  }
-}
+
 document.addEventListener("keydown", (evento) => {
+  const operadores = ["+", "-", "*", "x", "/", "Enter", "Escape", "."];
+  const numeros = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
   const teclasPermitidas = [
     "0",
     "1",
@@ -44,119 +17,71 @@ document.addEventListener("keydown", (evento) => {
     "+",
     "-",
     "*",
-    "Enter",
+    "x",
     "/",
+    "Enter",
+    "Escape",
     ".",
     "Backspace",
-    "x",
-    "Escape",
   ];
   if (teclasPermitidas.includes(evento.key)) {
-    if (document.getElementById("operacion").innerText == "0") {
+    //casos especiales
+    if (evento.key == "Backspace") {
+      operacion.innerHTML += "";
+    } else if (document.getElementById("operacion").innerText == "0") {
       operacion.innerHTML = "";
       operacion.innerHTML += evento.key;
     } else if (evento.key === "Enter") {
       operacion.innerHTML += "";
-    } else if (evento.keyt == "Backspace") {
-      operacion.innerHTML += "";
     } else {
       operacion.innerHTML += evento.key;
     }
-    if (evento.key == "0") {
-      casosNumerosTeclado(evento);
+    if (
+      localStorage.getItem("operacion") === "-" &&
+      localStorage.getItem("num1") == null
+    ) {
+      localStorage.setItem("num1", "-");
+      localStorage.removeItem("operacion");
     }
-    if (evento.key == "1") {
-      casosNumerosTeclado(evento);
-    }
-    if (evento.key == "2") {
-      casosNumerosTeclado(evento);
-    }
-    if (evento.key == "3") {
-      casosNumerosTeclado(evento);
-    }
-    if (evento.key == "4") {
-      casosNumerosTeclado(evento);
-    }
-    if (evento.key == "5") {
-      casosNumerosTeclado(evento);
-    }
-    if (evento.key == "6") {
-      casosNumerosTeclado(evento);
-    }
-    if (evento.key == "7") {
-      casosNumerosTeclado(evento);
-    }
-    if (evento.key == "8") {
-      casosNumerosTeclado(evento);
-    }
-    if (evento.key == "9") {
+
+    //casos especiales
+    //
+    //Numeros
+    if (numeros.includes(evento.key)) {
       casosNumerosTeclado(evento);
     }
     //Numeros
     //
     //Operadores
-    if (evento.key == "Enter") {
-      casosIgual();
-    }
-    if (evento.key === "Escape") {
-      vaciar();
-      vaciarLocal();
-    }
-    if (evento.key == "+") {
-      if (
-        localStorage.getItem("operacion") != null &&
-        localStorage.getItem("num1") != null &&
-        localStorage.getItem("num2") != null
-      ) {
+    if (operadores.includes(evento.key)) {
+      if (evento.key == "Enter") {
         casosIgual();
       }
-      localStorage.setItem("operacion", "+");
-    }
-    if (evento.key == "-") {
-      if (
-        localStorage.getItem("operacion") != null &&
-        localStorage.getItem("num1") != null &&
-        localStorage.getItem("num2") != null
-      ) {
-        casosIgual();
+      if (evento.key === "Escape") {
+        vaciar();
+        vaciarLocal();
       }
-      localStorage.setItem("operacion", "-");
-    }
-    if (evento.key == "x" || evento.key == "*") {
-      if (
-        localStorage.getItem("operacion") != null &&
-        localStorage.getItem("num1") != null &&
-        localStorage.getItem("num2") != null
-      ) {
-        casosIgual();
-      }
-      localStorage.setItem("operacion", "x");
-    }
-    if (evento.key == "/") {
-      if (
-        localStorage.getItem("operacion") != null &&
-        localStorage.getItem("num1") != null &&
-        localStorage.getItem("num2") != null
-      ) {
-        casosIgual();
-      }
-      localStorage.setItem("operacion", "/");
-    }
-    if (evento.key === ".") {
-      if (localStorage.getItem("operacion") === null) {
-        n1 = localStorage.getItem("num1");
-        nw1 = n1 + evento.key;
-        localStorage.setItem("num1", nw1);
-      } else if (localStorage.getItem("operacion") !== null) {
-        n2 = localStorage.getItem("num2");
-        nw2 = n2 + evento.key;
-        localStorage.setItem("num2", nw2);
+      if (evento.key === ".") {
+        if (localStorage.getItem("operacion") === null) {
+          n1 = localStorage.getItem("num1");
+          nw1 = n1 + evento.key;
+          localStorage.setItem("num1", nw1);
+        } else if (localStorage.getItem("operacion") !== null) {
+          n2 = localStorage.getItem("num2");
+          nw2 = n2 + evento.key;
+          localStorage.setItem("num2", nw2);
+        }
+      } else {
+        if (operacionCompleta()) {
+          casosIgual();
+        }
+        localStorage.setItem("operacion", evento.key);
       }
     }
     if (evento.key == "Backspace") {
       let op = operacion.textContent;
       let opArray = op.split("");
-      let last = opArray[opArray.length - 10];
+      let last = opArray[opArray.length - 1];
       if (
         localStorage.getItem("num1") != null &&
         localStorage.getItem("operacion") === null
@@ -173,6 +98,7 @@ document.addEventListener("keydown", (evento) => {
           }
         }
       }
+
       if (
         localStorage.getItem("num1") != null &&
         localStorage.getItem("operacion") != null &&
@@ -207,13 +133,15 @@ document.addEventListener("keydown", (evento) => {
           }
         }
       }
-      let newOp = op.slice(0, op.length - 10);
+      let newOp = op.slice(0, op.length - 1);
       operacion.innerHTML = newOp;
       if (operacion.textContent == "") {
         operacion.innerHTML = "0";
       }
     }
 
+    //Operadores
+    //
     // Scroll
     operacion.scrollTo({
       left: 10000,

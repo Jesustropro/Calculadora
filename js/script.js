@@ -6,113 +6,64 @@ const resultado = document.getElementById("resultado");
 let botones = document.querySelectorAll("button");
 botones.forEach((botonesCalculadora) => {
   botonesCalculadora.addEventListener("click", (evento) => {
+    //casos especiales
     if (evento.target.innerText === "Dark") {
       operacion.innerHTML += "";
     } else if (evento.target.innerText === "Soft") {
+      operacion.innerHTML += "";
+    } else if (evento.target.innerText == "←") {
       operacion.innerHTML += "";
     } else if (document.getElementById("operacion").innerText == "0") {
       operacion.innerHTML = "";
       operacion.innerHTML += evento.target.innerText;
     } else if (evento.target.innerText === "=") {
       operacion.innerHTML += "";
-    } else if (evento.target.innerText == "←") {
-      operacion.innerHTML += "";
     } else {
       operacion.innerHTML += evento.target.innerText;
     }
-
+    if (
+      localStorage.getItem("operacion") === "-" &&
+      localStorage.getItem("num1") == null
+    ) {
+      localStorage.setItem("num1", "-");
+      localStorage.removeItem("operacion");
+    }
+    //Casos especiales
+    const operadores = ["+", "-", "x", "/", "=", "C", "."];
+    const numeros = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     //Numeros
-    if (evento.target.innerText == "0") {
-      casosNumeros(evento);
-    }
-    if (evento.target.innerText == "1") {
-      casosNumeros(evento);
-    }
-    if (evento.target.innerText == "2") {
-      casosNumeros(evento);
-    }
-    if (evento.target.innerText == "3") {
-      casosNumeros(evento);
-    }
-    if (evento.target.innerText == "4") {
-      casosNumeros(evento);
-    }
-    if (evento.target.innerText == "5") {
-      casosNumeros(evento);
-    }
-    if (evento.target.innerText == "6") {
-      casosNumeros(evento);
-    }
-    if (evento.target.innerText == "7") {
-      casosNumeros(evento);
-    }
-    if (evento.target.innerText == "8") {
-      casosNumeros(evento);
-    }
-    if (evento.target.innerText == "9") {
+    if (numeros.includes(evento.target.innerText)) {
       casosNumeros(evento);
     }
     //Numeros
     //
     //Operadores
-    if (evento.target.innerText == "=") {
-      casosIgual();
-    }
-    if (evento.target.innerText === "C") {
-      vaciar();
-      vaciarLocal();
-    }
-    if (evento.target.innerText == "+") {
-      if (
-        localStorage.getItem("operacion") != null &&
-        localStorage.getItem("num1") != null &&
-        localStorage.getItem("num2") != null
-      ) {
+    if (operadores.includes(evento.target.innerText)) {
+      if (evento.target.innerText == "=") {
         casosIgual();
       }
-      localStorage.setItem("operacion", "+");
-    }
-    if (evento.target.innerText == "-") {
-      if (
-        localStorage.getItem("operacion") != null &&
-        localStorage.getItem("num1") != null &&
-        localStorage.getItem("num2") != null
-      ) {
-        casosIgual();
+      if (evento.target.innerText === "C") {
+        vaciar();
+        vaciarLocal();
       }
-      localStorage.setItem("operacion", "-");
-    }
-    if (evento.target.innerText == "x") {
-      if (
-        localStorage.getItem("operacion") != null &&
-        localStorage.getItem("num1") != null &&
-        localStorage.getItem("num2") != null
-      ) {
-        casosIgual();
-      }
-      localStorage.setItem("operacion", "x");
-    }
-    if (evento.target.innerText == "/") {
-      if (
-        localStorage.getItem("operacion") != null &&
-        localStorage.getItem("num1") != null &&
-        localStorage.getItem("num2") != null
-      ) {
-        casosIgual();
-      }
-      localStorage.setItem("operacion", "/");
-    }
-    if (evento.target.innerText === ".") {
-      if (localStorage.getItem("operacion") === null) {
-        n1 = localStorage.getItem("num1");
-        nw1 = n1 + evento.target.innerText;
-        localStorage.setItem("num1", nw1);
-      } else if (localStorage.getItem("operacion") !== null) {
-        n2 = localStorage.getItem("num2");
-        nw2 = n2 + evento.target.innerText;
-        localStorage.setItem("num2", nw2);
+      if (evento.target.innerText === ".") {
+        if (localStorage.getItem("operacion") === null) {
+          n1 = localStorage.getItem("num1");
+          nw1 = n1 + evento.target.innerText;
+          localStorage.setItem("num1", nw1);
+        } else if (localStorage.getItem("operacion") !== null) {
+          n2 = localStorage.getItem("num2");
+          nw2 = n2 + evento.target.innerText;
+          localStorage.setItem("num2", nw2);
+        }
+      } else {
+        if (operacionCompleta()) {
+          casosIgual();
+        }
+        localStorage.setItem("operacion", evento.target.innerText);
       }
     }
+
     if (evento.target.innerText == "←") {
       let op = operacion.textContent;
       let opArray = op.split("");
@@ -173,16 +124,8 @@ botones.forEach((botonesCalculadora) => {
         operacion.innerHTML = "0";
       }
     }
-
-    //
-    if (
-      localStorage.getItem("operacion") === "-" &&
-      localStorage.getItem("num1") == null
-    ) {
-      localStorage.setItem("num1", "-");
-      localStorage.removeItem("operacion");
-    }
     //Operadores
+    //
     // Scroll
     operacion.scrollTo({
       left: 10000,

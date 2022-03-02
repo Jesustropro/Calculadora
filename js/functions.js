@@ -53,6 +53,37 @@ function casosNumeros(evento) {
   }
 }
 
+function casosNumerosTeclado(evento) {
+  if (localStorage.getItem("num1") === null) {
+    localStorage.setItem("num1", evento.key);
+  } else if (localStorage.getItem("num1") === "-") {
+    let negativo = localStorage.getItem("num1");
+    new1 = negativo + evento.key;
+    localStorage.setItem("num1", new1);
+  } else if (
+    localStorage.getItem("num1") !== null &&
+    localStorage.getItem("operacion") !== null &&
+    localStorage.getItem("num2") === null
+  ) {
+    localStorage.setItem("num2", evento.key);
+  } else if (
+    localStorage.getItem("num1") != null &&
+    localStorage.getItem("operacion") === null
+  ) {
+    let uno = localStorage.getItem("num1");
+    let tres = uno + evento.key;
+    localStorage.setItem("num1", tres);
+  } else if (
+    localStorage.getItem("num1") != null &&
+    localStorage.getItem("operacion") != null &&
+    localStorage.getItem("num2") !== null
+  ) {
+    let Uno = localStorage.getItem("num2");
+    let Tres = Uno + evento.key;
+    localStorage.setItem("num2", Tres);
+  }
+}
+
 function casosIgual() {
   if (localStorage.getItem("operacion") == "+") {
     const suma = sumar(
@@ -158,4 +189,12 @@ function temaSoft() {
   scroll.className = "scrollSoft";
   let scroll2 = document.getElementById("resultado");
   scroll2.className = "scrollSoft";
+}
+
+function operacionCompleta() {
+  return (
+    localStorage.getItem("operacion") != null &&
+    localStorage.getItem("num1") != null &&
+    localStorage.getItem("num2") != null
+  );
 }
