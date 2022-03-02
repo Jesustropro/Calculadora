@@ -30,7 +30,7 @@ function casosNumerosTeclado(evento) {
   }
 }
 document.addEventListener("keydown", (evento) => {
-  console.log(evento.key);
+  // console.log(evento.key);
   if (document.getElementById("operacion").innerText == "0") {
     operacion.innerHTML = "";
     operacion.innerHTML += evento.key;
@@ -186,21 +186,19 @@ document.addEventListener("keydown", (evento) => {
         }
       }
     }
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-
     let newOp = op.slice(0, op.length - 10);
     operacion.innerHTML = newOp;
     if (operacion.textContent == "") {
       operacion.innerHTML = "0";
     }
   }
+
+  // Scroll
+  operacion.scrollTo({
+    left: 10000,
+  });
+  resultado.scrollTo({
+    left: 10000,
+  });
+  //Scroll
 });

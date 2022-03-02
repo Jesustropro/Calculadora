@@ -167,17 +167,6 @@ botones.forEach((botonesCalculadora) => {
           }
         }
       }
-      //
-      //
-      //
-      //
-      //
-      //
-      //
-      //
-      //
-      //
-
       let newOp = op.slice(0, op.length - 1);
       operacion.innerHTML = newOp;
       if (operacion.textContent == "") {
