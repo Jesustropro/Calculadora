@@ -57,10 +57,7 @@ document.addEventListener("keydown", (evento) => {
       if (evento.key == "Enter") {
         casosIgual();
       }
-      if (evento.key === "Escape") {
-        vaciar();
-        vaciarLocal();
-      }
+
       if (evento.key === ".") {
         if (localStorage.getItem("operacion") === null) {
           n1 = localStorage.getItem("num1");
@@ -142,7 +139,10 @@ document.addEventListener("keydown", (evento) => {
         operacion.innerHTML = "0";
       }
     }
-
+    if (evento.key === "Escape") {
+      vaciar();
+      vaciarLocal();
+    }
     //Operadores
     //
     // Scroll

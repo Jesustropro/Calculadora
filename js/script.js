@@ -42,10 +42,6 @@ botones.forEach((botonesCalculadora) => {
       if (evento.target.innerText == "=") {
         casosIgual();
       }
-      if (evento.target.innerText === "C") {
-        vaciar();
-        vaciarLocal();
-      }
       if (evento.target.innerText === ".") {
         if (localStorage.getItem("operacion") === null) {
           n1 = localStorage.getItem("num1");
@@ -63,7 +59,10 @@ botones.forEach((botonesCalculadora) => {
         localStorage.setItem("operacion", evento.target.innerText);
       }
     }
-
+    if (evento.target.innerText === "C") {
+      vaciar();
+      vaciarLocal();
+    }
     if (evento.target.innerText == "←") {
       let op = operacion.textContent;
       let opArray = op.split("");
